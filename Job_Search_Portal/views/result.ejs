@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FH-Kiel Search Result</title>
+
+    <link rel="icon" href="images/favicon.ico" type="ico" sizes="16x16">
+    <link href="./stylesheets/stylesheet1.css" rel="stylesheet" type="text/css" />
+    <link href="./stylesheets/responsive askhere.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="win-wrap">
+
+    <div class="wrapper">
+
+        <div class="content">
+
+            <div class="header">
+                <div class="header-logo"><img src="images/fh-kiel header logo.jpg" width="100%" /></div>
+                <div class="logout-pannel">
+                    <div class="logout-btn"><div class="name">Welcome<span class="log-name"> <%= uname%> </span> <% if (uname != "Visitor Student"){%>  <a href="/logout">Logout</a> <%}%></div></div>
+                </div>
+                <div class="navbar">
+                    <div class="menu">
+                        <ul>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/">Home</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <% if (uname != "Visitor Student"){%>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/profile">Profile</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <% if (uname == "admin"){%>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/user">Admin</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <%}%>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/contact">About Us</a></li>
+                            <%}%>
+                        </ul>
+
+                        <div class="source-logo" style="margin-right: 75px; color: #FFFFFF;">
+                            <a href="https://www.praktikum.info"><img src="images/praktikuminfo.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://de.indeed.com/?r=us"><img src="images/indeed.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://www.it-jobs.stepstone.de"><img src="images/stepstone.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://www.meinpraktikum.de"><img src="images/meinpraktikum.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-body">
+                <div class="mainbody-content">
+                    <br/>
+                    <strong>Job Title : </strong><span class="log-name"> <%= queryString%> </span> | <strong>City : </strong><span class="log-name"> <%= city%> </span>
+                    <br/>
+                    <strong>Total Jobs : </strong><span class="log-name"> <%= tjobs%> </span>
+                    <br/><br/>
+
+                    <%var html = ["Posted Date : ", "Job Title : ", "Company : ", "Location : ","Category : "]%>
+                    <%var j=0%>
+                    <%for(var i=0;i<len;i++){%>
+                    <%if (i%6==0){%>
+                    <hr/>
+                    <a href="<%=jobsdata[i]%>"> <%=jobsdata[i]%> </a>
+                    <%j=0%>
+                    <%}else{%>
+                    <strong><%=html[j]%></strong>
+                    <%=jobsdata[i]%>
+                    <%j++%>
+                    <%}%>
+                    <br/>
+                    <%}%>
+
+                    <br/>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <div class="footerlinks">
+                <ul>
+                    <li><a href="/">Homepage</a></li>&nbsp|&nbsp;
+                    <li><a href="http://www.fh-kiel.de">FH-Kiel</a></li>&nbsp|&nbsp;
+                    <li><a href="/contact">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

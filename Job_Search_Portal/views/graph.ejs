@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FH-Kiel Graph</title>
+
+    <link rel="icon" href="images/favicon.ico" type="ico" sizes="16x16">
+    <link href="./stylesheets/stylesheet1.css" rel="stylesheet" type="text/css" />
+    <link href="./stylesheets/responsive askhere.css" rel="stylesheet" type="text/css" />
+
+    <script>
+        function validateForm() {
+/////////////////////////////////////////////////////
+            var a = document.forms["Form"]["title"].value;
+            if (a == null || a == "") {
+                alert("Please enter your \"Title of Question\" ");
+                return false;
+            }
+            return 1;
+        }
+    </script>
+
+
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.1.3"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.geom.js?2.1.3"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js?2.1.3"></script>
+
+    <style type="text/css">
+        .bar rect
+        {
+            /*
+                        fill: black;
+                        stroke: black;
+            */
+        }
+        .label
+        {
+            font-family: Verdana;
+            font-size: 15pt;
+            color: gray;
+            fill-opacity: .6;
+        }
+        .value
+        {
+            font-family: Verdana;
+            font-size: 11pt;
+            color: gray;
+            fill-opacity: .6;
+        }
+
+        .tick_label
+        {
+            font-size: 15pt;
+            font-family: Verdana;
+            color: gray;
+            fill-opacity: .6;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<div class="win-wrap">
+
+    <div class="wrapper">
+
+        <div class="content">
+
+            <div class="header">
+                <div class="header-logo"><img src="images/fh-kiel header logo.jpg" width="100%" /></div>
+                <div class="logout-pannel">
+                    <div class="logout-btn"><div class="name">Welcome<span class="log-name"> <%= uname%> </span> <a href="/logout">Logout</a></div></div>
+                </div>
+                <div class="navbar">
+                    <div class="menu">
+                        <ul>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/">Home</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/profile">Profile</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <% if (uname == "admin"){%>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/user">Admin</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <%}%>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/contact">About Us</a></li>
+                        </ul>
+
+                        <div class="source-logo" style="margin-right: 75px; color: #FFFFFF;">
+                            <a href="https://www.praktikum.info"><img src="images/praktikuminfo.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://de.indeed.com/?r=us"><img src="images/indeed.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://www.it-jobs.stepstone.de"><img src="images/stepstone.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://www.meinpraktikum.de"><img src="images/meinpraktikum.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-body">
+                <div class="mainbody-content">
+                    Graph : <%=gdata%>
+                    <script type="text/javascript" src="/javascripts/graph.js">
+
+                    </script>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footerlinks">
+            <ul>
+                <li><a href="/">Homepage</a></li>&nbsp|&nbsp;
+                <li><a href="http://www.fh-kiel.de">FH-Kiel</a></li>&nbsp|&nbsp;
+                <li><a href="/contact">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

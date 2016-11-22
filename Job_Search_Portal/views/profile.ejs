@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="`ent-Type" content="text/html; charset=utf-8" />
+    <title>FH-Kiel Profile</title>
+
+    <link rel="icon" href="images/favicon.ico" type="ico" sizes="16x16">
+    <link href="./stylesheets/stylesheet1.css" rel="stylesheet" type="text/css" />
+    <link href="./stylesheets/responsive askhere.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        function validateForm()
+        {
+            var inputElems = document.getElementsByTagName("input"),
+                    count = 0;
+
+            for (var i=0; i < inputElems.length; i++) {
+                if (inputElems[i].type == "checkbox" && inputElems[i].checked == true){
+                    if(inputElems[i].name == "chk_all" && inputElems[i].checked == true){}else{count++;}
+                }
+            }
+            if(count < 2)
+            {
+                alert("Select atleast 2 Choices !!!");
+                return false;
+            }
+            else
+            {
+                return 1;
+            }
+
+        }
+    </script>
+
+    <script  type="text/javascript">
+        function toggle(source) {
+            checkboxes = document.getElementsByName('choice');
+            for(var i=0, n=checkboxes.length;i<n;i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+<div class="win-wrap">
+
+    <div class="wrapper">
+
+        <div class="content">
+
+            <div class="header">
+                <div class="header-logo"><img src="images/fh-kiel header logo.jpg" width="100%" /></div>
+                <div class="logout-pannel">
+                    <div class="logout-btn"><div class="name">Welcome<span class="log-name"> <%= uname%> </span> <a href="/logout">Logout</a></div></div>
+                </div>
+                <div class="navbar">
+                    <div class="menu">
+                        <ul>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/">Home</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/profile">Profile</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <% if (uname == "admin"){%>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/user">Admin</a></li>&nbsp;<span class="arrow">&#x25BA;</span>
+                            <%}%>
+                            <li style="font-size: larger;font-family: FontAwesome"><a href="/contact">About Us</a></li>
+
+                        </ul>
+
+                        <div class="source-logo" style="margin-right: 75px; color: #FFFFFF;">
+                            <a href="https://www.praktikum.info"><img src="images/praktikuminfo.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://de.indeed.com/?r=us"><img src="images/indeed.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://www.it-jobs.stepstone.de"><img src="images/stepstone.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                            <a href="http://www.meinpraktikum.de"><img src="images/meinpraktikum.png" style=" height: 34px; margin-top: -26px; margin-left: 10px" align="right"/></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-body">
+                <div class="mainbody-content">
+
+                    <br/><br/>
+
+                    <strong>Welcome to Your Profile : </strong><%= uname%><br/><br/><hr/>
+                    <strong>First Name : </strong><%=fname%><br/>
+                    <strong>Last Name : </strong><%=lname%><br/>
+                    <strong>E-Mail : </strong><%=email%><br/>
+                    <strong>Username : </strong><%= uname%><br/>
+                    <br/><span class="underline-link"><a href="/password">Edit Profile</a></span><br/><br/>
+                    <hr/>
+                    <strong>Tags : </strong><%= tags%><br/><hr/>
+
+                    <div class="CheckboxData">
+                    <strong>Note : </strong>Select atleast 2 Tags for Jobs<br/><br/>
+                        <form action="/tags" method="POST" onSubmit="return validateForm();">
+                            <input type="checkbox" name="chk_all" onClick="toggle(this)" /><span class="log-name">  All Tags </span><br/><br/>
+                            <input type="checkbox" name="choice" value="javascript"> Javascript<br>
+                            <input type="checkbox" name="choice" value="c++" > C++<br>
+                            <input type="checkbox" name="choice" value="C#" > C#.NET<br>
+                            <input type="checkbox" name="choice" value="php" > PHP<br>
+                            <input type="checkbox" name="choice" value="python" > Python<br>
+                            <input type="checkbox" name="choice" value="RubyonRails" > Ruby on Rails<br>
+                            <input type="checkbox" name="choice" value="java" > Java<br><br>
+                            <input type="submit" value="Submit">
+                        </form>
+                    <br/>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <div class="footerlinks">
+                <ul>
+                    <li><a href="/">Homepage</a></li>&nbsp|&nbsp;
+                    <li><a href="http://www.fh-kiel.de">FH-Kiel</a></li>&nbsp|&nbsp;
+                    <li><a href="/contact">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

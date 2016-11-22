@@ -1,0 +1,67 @@
+How to start monodb server ?
+
+-> Project Folder "askere" in >> C:\ 
+
+-> For database Create folder "data" in >> C:\askhere 
+
+-> Copy Rockmongo in project folder >> C:\askhere
+
+-> Go to cmd
+
+-> Open the dir >> cd C:\Program Files\MongoDB 2.6 Standard\bin
+
+-> Run this command >> mongod --dbpath C:\Users\Shah\Desktop\Job_Search_Portal\data
+
+-> Go to Rockmongo folder and run "rockstart.bat" file
+
+-> Give username and password "admin" 
+
+-> Now open a new cmd 
+
+-> Open the dir >> cd C:\Program Files\MongoDB 2.6 Standard\bin
+
+-> Now run the "mongo.exe" 
+
+Here we Go !!! Mongodb Starts :)
+
+/////////////////////////////////////////////////////////////////
+
+Database Structure:
+
+-> Open Browser
+
+-> Open link >> http://127.0.0.1:7788/rockmongo/index.php
+
+>> DB Name : askhere
+
+>> Collections Structure
+
+adminusers : //Create Yourself
+
+{
+   "username": "admin",
+   "password": "admin" 
+}
+
+allusers : //automatic data created when user signup
+
+{
+   "fname": "Hammad",
+   "lname": "Shah",
+   "email": "hammad_ali447@yahoo.com",
+   "username": "hammad038",
+   "password": "123" 
+}
+
+filters: //automatic will be create when user signup
+
+{
+   "username": "hammad038",
+   "tags": "select" 
+}
+
+ 
+
+
+
+
